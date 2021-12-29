@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+.header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+.header::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: green;
+    z-index: 2;
+}
+.header_body {
+    position: relative;
+    /* z-index: 2; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.header-list {
+    display: flex;
+    position: relative;
+    z-index: 3;
+}
+.header-list li a {
+    color: black;
+    font-size: 20px;
+    padding: 20px 10px;
+}
+.logo {
+    position: relative;
+    overflow: hidden;
+}
+.logo a {
+    position: relative;
+    font-size: 50px;
+    color: red;
+    z-index: 4;
+}
+.burger {
+    display: none;
+}
+
+@media screen and (max-width:700px) {
+    .burger::after {
+        content: "";
+        background-color: black;
+        position: absolute;
+        left: 0;
+        bottom: 10px;
+        width: 100%;
+        height: 2px;
+        transition: all 1s;
+    }
+    .burger::before {
+        content: "";
+        background-color: black;
+        position: absolute;
+        left: 0px;
+        top: 0;
+        width: 100%;
+        height: 2px;
+        transition: all 1s;
+    }
+    .burger {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 20px;
+        z-index: 5;
+    
+    }
+    .burger span {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: black;
+        top: 9px;
+        left: 0;
+        transition: all 1s;
+    }
+    .menu {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        padding: 75px 300px;
+        transition: all 2s;
+    }
+    .menu.active {
+        top: 0;
+    }
+    .burger.active span{
+        transform: scale(0);
+    }
+    .burger.active::before {
+        transition: rotate(45deg) ;
+        top: 10px;
+    }
+    .burger.active::after {
+        transition: rotate(-45deg) ;
+        top: 18px;
+    }
+    .header-list {
+        display: block;
+    }
+    .header-list li {
+        margin-bottom: 20px;
+    }
+    
+}
